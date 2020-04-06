@@ -8,6 +8,13 @@
         ],
         "description": "for循环"
     },
+    "多语言":{
+        "prefix": "Lang",
+        "body": [
+            "this.T('${1:string}')"
+          ],
+          "description": "多语言调用"
+    },
     "ajax": {
         "prefix": "ajax",
         "body": [

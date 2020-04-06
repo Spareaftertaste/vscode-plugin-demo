@@ -39,36 +39,19 @@
         },
         "commands": [
             {
-                "command": "extension.sayHello",
-                "title": "Hello，小茗同学"
-            },
-            {
-                "command": "extension.demo.getCurrentFilePath",
-                "title": "获取当前文件(夹)路径"
-            },
-            {
-                "command": "extension.demo.testMenuShow",
-                "title": "这个菜单仅在JS文件中出现",
-                "icon": {
-                    "light": "./images/tool-light.svg",
-                    "dark": "./images/tool-light.svg"
-                }
-            },
-            {
-                "command": "extension.demo.openWebview",
-                "title": "打开WebView"
-            },
-            {
-                "command": "extension.demo.showWelcome",
-                "title": "显示自定义欢迎页"
+                "command": "extension.lang",
+                "title": "多语言测试"
             }
         ],
         "keybindings": [
             {
                 "command": "extension.lang",
+                "when": "editorTextFocus",
                 "key": "ctrl+t",
                 "mac": "cmd+t",
-                "when": "editorTextFocus"
+                "args": {
+                    "snippet": "this.T('${1:string}')"
+                }
             }
         ],
         "snippets": [
@@ -79,22 +62,6 @@
             {
                 "language": "html",
                 "path": "./snippets/html.json"
-            }
-        ],
-        "viewsContainers": {
-            "activitybar": [
-                {
-                    "id": "beautifulGirl",
-                    "title": "美女",
-                    "icon": "images/beautifulGirl.svg"
-                }
-            ]
-        },
-        "iconThemes": [
-            {
-                "id": "testIconTheme",
-                "label": "测试图标主题",
-                "path": "./theme/icon-theme.json"
             }
         ]
     },

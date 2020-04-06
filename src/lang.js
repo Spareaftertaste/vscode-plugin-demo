@@ -14,9 +14,12 @@ function provideCompletionItems(document, position, token, context) {
   try {
     const line = document.lineAt(position);
     const projectPath = util.getProjectPath(document);
-
+    
     // 只截取到光标位置为止，防止一些特殊情况
     const lineText = line.text.substring(0, position.character);
+
+    console.log(lineText, "咩阿阿阿阿阿");
+
     // 简单匹配，只要当前光标前的字符串为`this.dependencies.`都自动带出所有的依赖
     if (/(^|=| )\w+\.lang\.$/g.test(lineText)) {
       const currentFile = (document.uri ? document.uri : document).path;
@@ -36,14 +39,17 @@ function provideCompletionItems(document, position, token, context) {
 
       // const json = require("e:/react-demo/src/pages/id_auth/locale/zh_CN.json");
       const json = require(langJsonPath);
-      const langKeys = Object.keys(json || {})
+      const langKeys = Object.keys(json || {});
 
       // const dependencies = Object.keys(json.dependencies || {}).concat(
       //   Object.keys(json.devDependencies || {})
       // );
       return langKeys.map((langKey) => {
         // vscode.CompletionItemKind 表示提示的类型
-        return new vscode.CompletionItem(`${langKey}: ${json[langKey]}`, vscode.CompletionItemKind.Field);
+        return new vscode.CompletionItem(
+          `${langKey}: ${json[langKey]}`,
+          vscode.CompletionItemKind.Field
+        );
       });
     }
   } catch (err) {
@@ -60,7 +66,6 @@ function resolveCompletionItem(item, token) {
   return null;
 }
 
-
 module.exports = function (context) {
   // 注册代码建议提示，只有当按下“.”时才触发
   context.subscriptions.push(
@@ -72,8 +77,9 @@ module.exports = function (context) {
       },
       "."
     ),
-    vscode.commands.registerCommand('extension.lang', () => {
-      vscode.window.showInformationMessage('多语言自动补全');
+    vscode.commands.registerCommand("extension.lang", () => {
+      // vscode.window.showInformationMessage("多语言自动补全");
+      // vscode.TextEdit.
     })
   );
 };
