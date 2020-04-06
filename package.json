@@ -71,6 +71,12 @@
                 "when": "editorTextFocus"
             },
             {
+                "command": "extension.lang",
+                "key": "ctrl+t",
+                "mac": "cmd+t",
+                "when": "editorTextFocus"
+            },
+            {
                 "command": "extension.demo.openWebview",
                 "key": "ctrl+f9",
                 "mac": "cmd+f9",
